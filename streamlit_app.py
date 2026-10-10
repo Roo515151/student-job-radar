@@ -30,12 +30,24 @@ if len(raw_data) > 1:
     rows = raw_data[2:]
     df = pd.DataFrame(rows, columns=headers)
     
+    # --- NEW: Reorder columns to put 'Link' on the far left ---
+    # We safely check if the columns exist, then rearrange them
+    preferred_order = ["Link", "Job Title", "Company", "Location", "Type"]
+    df = df[[col for col in preferred_order if col in df.columns]]
+    
     # --- RENDER INTERACTIVE TABLE ---
     st.dataframe(
         df,
         column_config={
-            "Link": st.column_config.LinkColumn("Apply Link", display_text="Open Job ↗"),
-            "Job Title": st.column_config.TextColumn("Job Title", width="large"),
+            "Link": st.column_config.LinkColumn(
+                "Apply",               # Makes the header shorter
+                display_text="🚀",     # Turns the long URL into a simple rocket button
+                width="small"          # Keeps the column as narrow as possible
+            ),
+            "Job Title": st.column_config.TextColumn(
+                "Job Title", 
+                width="medium"         # Shrunk down from 'large'
+            ),
         },
         hide_index=True,
         use_container_width=True,
