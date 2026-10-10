@@ -33,7 +33,7 @@ if raw_data:
         df = df.drop(columns=["Hash ID"])
         
     # Reorder columns
-    preferred_order = ["Link", "Priority", "Job Title", "Company", "Location", "Type", "Last Seen"]
+    preferred_order = ["Link", "Priority", "Job Title", "Company", "Location", "Last Seen"]
     df = df[[col for col in preferred_order if col in df.columns]]
     
     # --- RENDER INTERACTIVE TABLE ---
