@@ -3,7 +3,7 @@ import pandas as pd
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
-st.set_page_config(page_title="Student Job Radar", page_icon="🎓", layout="wide")
+st.set_page_config(page_title="Oscars Job Radar", page_icon="🏆", layout="wide")
 
 # --- CONNECT TO GOOGLE SHEETS ---
 # Streamlit secrets handle the credentials securely in the cloud
@@ -16,7 +16,7 @@ jobs_sheet = sheet_file.worksheet("Jobs")
 banned_sheet = sheet_file.worksheet("Banned_Keywords")
 
 # --- UI HEADER ---
-st.title("🎓 Student Job Radar")
+st.title("🏆 Oscars Job Radar")
 
 # Fetch data
 raw_data = jobs_sheet.get_all_values()
