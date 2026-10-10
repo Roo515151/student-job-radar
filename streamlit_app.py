@@ -40,7 +40,7 @@ if len(raw_data) > 1:
         df,
         column_config={
             "Link": st.column_config.LinkColumn(
-                "Apply",               # Makes the header shorter
+                "View",               # Makes the header shorter
                 display_text="🚀",     # Turns the long URL into a simple rocket button
                 width="small"          # Keeps the column as narrow as possible
             ),
